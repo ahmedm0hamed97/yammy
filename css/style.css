@@ -1,0 +1,55 @@
+
+
+
+.nav-menu{
+    z-index: 9999;
+}
+
+.nav-face{
+    width: 70px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#close-nav-side{
+    display: none;
+}
+.nav-side .links li{
+    width: fit-content;
+    cursor: pointer;
+}
+
+.bg-white-70{
+ background-color: #ffffff9d;
+}
+.c-pointer{
+    cursor: pointer;
+}
+
+figcaption{
+    transform: translateY(100%);
+    transition: all 1s;
+    overflow: hidden;
+    
+}
+figure:hover figcaption{
+    transform: translateY(0);
+}
+.meal-desc{
+    font-size: 17px;
+    line-height: 1.2;
+}
+@media (max-width: 767px){
+    figcaption{
+        justify-content: center;
+    }
+    figcaption h3{
+        font-size: 40px;
+    }
+}
+
+.ingredients-desc{
+    height: 50px;
+}
+
+#mainDetails li{
+    margin-right: 15px;
+}

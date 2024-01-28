@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content=" collection of meal can chose any one and show area , ingredients"
+    />
+    <meta name="keywords" content="meal , ingredients , " />
+
+    <!-- <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon"> -->
+    <title>Yammy</title>
+
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- <link rel="stylesheet" href="./bootstrap-icons-1.11.2/font/bootstrap-icons.min.css"> -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="bg-dark">
+    <!-- nav menu side back -->
+    <div class="nav-menu vh-100 d-flex position-fixed top-0 start-0">
+      <!-- nav side "outer"-->
+      <div
+        class="nav-side d-flex flex-column justify-content-between vh-100 p-4 bg-dark text-white"
+      >
+        <div class="links">
+          <ul class="list-unstyled">
+            <li id="search-link" class="fw-bold p-2 position-relative">
+              Search
+            </li>
+            <li id="categories-link" class="fw-bold p-2 position-relative">
+              Categories
+            </li>
+            <li id="area-link" class="fw-bold p-2 position-relative">Area</li>
+            <li id="ingredients-link" class="fw-bold p-2 position-relative">
+              Ingredients
+            </li>
+            <li id="contact-link" class="fw-bold p-2 position-relative">
+              Contact Us
+            </li>
+          </ul>
+        </div>
+        <div class="nav-menu-footer">
+          <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="footer">
+            <p>Copyright Â© 2019 All Rights <br />Reserved.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- nav-face -->
+      <div
+        class="nav-face bg-white text-dark px-2 vh-100 d-flex flex-column align-items-center justify-content-around"
+      >
+        <img src="./images/logo.png" class="w-100" alt="site logo" />
+
+        <div class="text-center">
+          <i id="open-nav-side" class="fa-solid fa-bars-staggered fs-2"></i>
+          <i id="close-nav-side" class="fa-solid fa-xmark fs-2"></i>
+        </div>
+
+        <div class="nav-face-footer fs-5">
+          <i class="fa-solid fa-globe d-block mb-1"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- main meals -->
+    <section id="main" class="mt-5">
+      <div class="container">
+        <div class="row" id="mainData">
+          <div class="col-md-3">
+            <figure
+              class="position-relative rounded rounded-3 overflow-hidden c-pointer"
+            >
+              <img src="./images/meal-3.jpg" class="w-100" alt="" />
+              <figcaption
+                class="position-absolute top-0 end-0 start-0 bottom-0 bg-white-70 text-dark d-flex align-items-center"
+              >
+                <h3 class="">ahmed</h3>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-md-3">
+            <figure
+              class="position-relative rounded rounded-3 overflow-hidden c-pointer"
+            >
+              <img src="./images/meal-1.jpg" class="w-100" alt="" />
+              <figcaption
+                class="position-absolute top-0 end-0 start-0 bottom-0 bg-white-70 text-dark d-flex align-items-center"
+              >
+                <h3 class="">ahmed</h3>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-md-3">
+            <figure
+              class="position-relative rounded rounded-3 overflow-hidden c-pointer"
+            >
+              <img src="./images/meal-2.jpg" class="w-100" alt="" />
+              <figcaption
+                class="position-absolute top-0 end-0 start-0 bottom-0 bg-white-70 text-dark d-flex align-items-center"
+              >
+                <h3 class="">ahmed</h3>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="col-md-3">
+            <figure
+              class="position-relative rounded rounded-3 overflow-hidden c-pointer"
+            >
+              <img src="./images/meal-3.jpg" class="w-100" alt="" />
+              <figcaption
+                class="position-absolute top-0 end-0 start-0 bottom-0 bg-white-70 text-dark d-flex align-items-center"
+              >
+                <h3 class="">ahmed</h3>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="search" class="ms-5 my-5 d-none">
+      <div class="container">
+        <div class="row ms-3">
+          <div class="col-lg-6 my-4">
+            <input
+              id="searchName"
+              onkeyup="searchByName()"
+              type="text"
+              class="form-control"
+              placeholder="Search by name..."
+            />
+          </div>
+
+          <div class="col-lg-6 my-4">
+            <input
+              id="searchLetter"
+              onkeyup="searchByLetter()"
+              type="text"
+              maxlength="1"
+              class="form-control"
+              placeholder="Search by first letter..."
+            />
+          </div>
+        </div>
+
+        <div class="row" id="searchData">data</div>
+      </div>
+    </section>
+
+    <section id="area">
+      <div class="container">
+        <div class="row g-4" id="areaMain">
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="inner rounded bg-info text-center c-pointer">
+              <i class="fa-solid fa-house-laptop fa-4x mb-2"></i>
+              <h3></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ingredients" class="py-5">
+      <div class="container">
+        <div class="row g-4" id="ingredientsMain">
+          <div class="col-lg-4">
+            <div class="inner text-center c-pointer overflow-hidden">
+              <i class="fa-solid fa-drumstick-bite fa-4x"></i>
+              <h3></h3>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="ms-5 ps-5 d-none">
+      <div class="container">
+        <header class="d-flex justify-content-between align-items-center py-1">
+          <h2 class="text-light">Recipes details</h2>
+          <button id="CloseBtn" class="btn-close btn-close-white"></button>
+        </header>
+
+        <div id="mainDetails" class="row py-5 text-white">
+          <div class="col-md-4">
+            <figure>
+              <img
+                class="w-100 bg-danger rounded-3"
+                src="./images/meal-3.jpg"
+                alt=""
+              />
+              <h3 class="text-white">ahmed mohamed</h3>
+            </figure>
+          </div>
+          <div class="col-md-8 text-light fw-bold ps-4">
+            <h4>Instructions</h4>
+            <p>
+              In a bowl, mash the banana with a fork until it resembles a thick
+              purée. Stir in the eggs, baking powder and vanilla. Heat a large
+              non-stick frying pan or pancake pan over a medium heat and brush
+              with half the oil. Using half the batter, spoon two pancakes into
+              the pan, cook for 1-2 mins each side, then tip onto a plate.
+              Repeat the process with the remaining oil and batter. Top the
+              pancakes with the pecans and raspberries.
+            </p>
+            <h4>Publisher:</h4>
+            <h4>Category:</h4>
+            <h4>Recipe ingredients:</h4>
+            <ul class="list-unstyled d-flex flex-wrap mb-3">
+              <li>ahmed</li>
+              <li>ahmed</li>
+              <li>ahmed</li>
+              <li>ahmed</li>
+            </ul>
+
+            <h4>Tags:</h4>
+            <ul class="list-unstyled d-flex flex-wrap mb-4">
+              <li>ahmed</li>
+              <li>ahmed</li>
+              <li>ahmed</li>
+              <li>ahmed</li>
+            </ul>
+
+            <a href="" target="_Blank" class="btn btn-success text-white mb-5"
+              >Source</a
+            >
+            <a href="" target="_Blank" class="btn btn-danger text-white mb-5"
+              >Youtube</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

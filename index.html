@@ -18,6 +18,13 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body class="bg-dark">
+
+    <!-- loading -->
+    <section id="loading">
+      <span class="loader"></span>
+    </section>
+
+
     <!-- nav menu side back -->
     <div class="nav-menu vh-100 d-flex position-fixed top-0 start-0">
       <!-- nav side "outer"-->
@@ -71,11 +78,40 @@
       </div>
     </div>
 
+    <section id="search" class="ms-5 my-5 d-none">
+      <div class="container">
+        <div class="row ms-3">
+          <div class="col-lg-6 my-4">
+            <input
+              id="searchName"
+              onkeyup="searchByName()"
+              type="text"
+              class="form-control"
+              placeholder="Search by name..."
+            />
+          </div>
+
+          <div class="col-lg-6 my-4">
+            <input
+              id="searchLetter"
+              onkeyup="searchByLetter()"
+              type="text"
+              maxlength="1"
+              class="form-control"
+              placeholder="Search by first letter..."
+            />
+          </div>
+        </div>
+
+        <div class="row" id="searchData">data</div>
+      </div>
+    </section>  
+
     <!-- main meals -->
     <section id="main" class="mt-5">
       <div class="container">
         <div class="row" id="mainData">
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <figure
               class="position-relative rounded rounded-3 overflow-hidden c-pointer"
             >
@@ -125,49 +161,21 @@
                 <h3 class="">ahmed</h3>
               </figcaption>
             </figure>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
 
-    <section id="search" class="ms-5 my-5 d-none">
-      <div class="container">
-        <div class="row ms-3">
-          <div class="col-lg-6 my-4">
-            <input
-              id="searchName"
-              onkeyup="searchByName()"
-              type="text"
-              class="form-control"
-              placeholder="Search by name..."
-            />
-          </div>
-
-          <div class="col-lg-6 my-4">
-            <input
-              id="searchLetter"
-              onkeyup="searchByLetter()"
-              type="text"
-              maxlength="1"
-              class="form-control"
-              placeholder="Search by first letter..."
-            />
-          </div>
-        </div>
-
-        <div class="row" id="searchData">data</div>
-      </div>
-    </section>
 
     <section id="area">
       <div class="container">
         <div class="row g-4" id="areaMain">
-          <div class="col-lg-3 col-md-4 col-sm-6">
+          <!-- <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="inner rounded bg-info text-center c-pointer">
               <i class="fa-solid fa-house-laptop fa-4x mb-2"></i>
               <h3></h3>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -244,7 +252,35 @@
       </div>
     </section>
 
+    <section id="contact" class="d-none">
+      <div class="container w-75 ">
+        <div class="row justify-content-around p-3 ms-3" id="contactData">
+
+          <div class="col-lg-5 col-sm-10">
+            <input id="inputName" onkeyup="validateName()" class="form-control mb-3" type="text" placeholder="Enter Your Name...">
+          </div>
+          <div class="col-lg-5 col-sm-10">
+            <input id="inputEmail" onkeyup="validateEmail()" class="form-control mb-3" type="email" placeholder="Enter Your Email...">
+          </div>
+          <div class="col-lg-5 col-sm-10">
+            <input id="inputPhone" onkeyup="validatePhone()" class="form-control mb-3" type="text" placeholder="Enter Your Phone...">
+          </div>
+          <div class="col-lg-5 col-sm-10">
+            <input id="inputAge" onkeyup="validateAge()" class="form-control mb-3" type="text" placeholder="Enter Your Age...">
+          </div>
+          <div class="col-lg-5 col-sm-10">
+            <input id="inputPass" onkeyup="validatePass()" class="form-control mb-3" type="password" placeholder="Enter Your password...">
+          </div>
+          <div class="col-lg-5 col-sm-10">
+            <input id="inputRepass" onkeyup="validateRepass()" class="form-control mb-3" type="password" placeholder="Enter Your Repassword...">
+          </div>
+          <button  onclick="allInputsValidate()" id="submitBtn" class="my-3 fw-bold btn btn-outline-warning w-25">Submit</button>
+        </div>
+      </div>
+    </section>
+
     <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/sweetalert2@11.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/main.js"></script>
   </body>

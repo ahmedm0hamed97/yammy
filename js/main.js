@@ -8,6 +8,9 @@ let detailsMainSec = document.getElementById("mainDetails");
 let searchNameInput = document.getElementById("searchName");
 let searchLetterInput = document.getElementById("searchLetter");
 const navSideWidth = $(".nav-side").outerWidth();
+// let loadingSec = document.getElementById('loading');
+
+
 $(".nav-side").css({ marginLeft: -navSideWidth });
 
 const navLiWidth = $(".links li").innerWidth();
@@ -52,6 +55,12 @@ async function getMainData() {
     "https://www.themealdb.com/api/json/v1/1/search.php?s="
   );
   let data = await response.json();
+  // loadingSec.classList.add('d-none');
+  $(document).ready(function () {
+    $("#loading").fadeOut(5000, function () {
+      $("body").css("overflow", "visible");
+    });
+  });
   finalData = data.meals;
   // console.log(data)
   console.log(finalData);
@@ -92,6 +101,7 @@ async function getCategories() {
   );
   let data = await response.json();
   finalCategories = data.categories;
+
   // console.log(data)
   // console.log(finalCategories)
   // displayCategories(finalCategories)
@@ -117,7 +127,7 @@ function displayCategories(list) {
 
   mainData.innerHTML = cartoona;
 
-  search.innerHTML = "";
+  // search.innerHTML = "";
   areaMain.innerHTML = "";
   ingredientsMain.innerHTML = "";
 }
@@ -134,7 +144,7 @@ $("#search-link").click(function () {
   searchSection.classList.remove("d-none");
   // displayCategories(finalCategories)
   mainData.innerHTML = "";
-  searchData.innerHTML = "";
+  // searchData.innerHTML = "";
   ingredientsMain.innerHTML = "";
   closeSideNav();
 });
@@ -171,7 +181,7 @@ function displayArea(list) {
   areaMain.innerHTML = cartoona;
 
   mainData.innerHTML = "";
-  searchData.innerHTML = "";
+  // searchData.innerHTML = "";
   ingredientsMain.innerHTML = "";
 }
 
@@ -216,7 +226,7 @@ function displayIngredients(list) {
   ingredientsMain.innerHTML = cartoona;
 
   mainData.innerHTML = "";
-  searchData.innerHTML = "";
+  // searchData.innerHTML = "";
   areaMain.innerHTML = "";
 }
 
@@ -232,7 +242,7 @@ async function getMealDetails(rId) {
     `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${rId}`
   );
   let data = await respone.json();
-  console.log(data.meals);
+  // console.log(data.meals);
   displayMealDetails(data.meals[0]);
   // علشان اعرض سيكشن التفاصيل
   // detailsSec.removeClass('d-none')
@@ -254,7 +264,6 @@ function displayMealDetails(meal) {
 
   cartoona = "";
 
-  // for (let i = 0; i < list.length; i++) {}
   cartoona = `
     <div class="container">
       <header class="d-flex justify-content-between align-items-center py-1">
@@ -362,7 +371,7 @@ async function searchByName() {
 }
 
 // search by letter
- async function searchByLetter(){
+async function searchByLetter() {
   let response = await fetch(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchLetterInput.value}`
   );
@@ -389,4 +398,151 @@ async function searchByName() {
   mainData.innerHTML = "";
   areaMain.innerHTML = "";
   ingredientsMain.innerHTML = "";
- }
+}
+
+let inputName = document.getElementById("inputName");
+let inputEmail = document.getElementById("inputEmail");
+let inputPhone = document.getElementById("inputPhone");
+let inputAge = document.getElementById("inputAge");
+let inputPass = document.getElementById("inputPass");
+let inputRepass = document.getElementById("inputRepass");
+let submitBtn = document.getElementById("submitBtn");
+let contactSection = document.getElementById("contact");
+
+// contact link inside navbar
+$("#contact-link").click(function () {
+  // console.log('ahmed');
+  contactSection.classList.remove("d-none");
+
+  mainData.innerHTML = "";
+  areaMain.innerHTML = "";
+  ingredientsMain.innerHTML = "";
+  searchData.innerHTML = "";
+  closeSideNav();
+});
+
+function validateName() {
+  regexName = /^[A-Za-z]{3,20}$/;
+  if (regexName.test(inputName.value)) {
+    inputName.classList.add("is-valid");
+    return true;
+  } else {
+    Swal.fire({
+      title: "Enter your name",
+      text: "Enter at least 3 character and not include special character",
+      icon: "error",
+    });
+    inputName.classList.remove("is-valid");
+  }
+}
+function validateEmail() {
+  regexEmail = /^[a-zA-Z0-9]{3,}(@gmail.com)$/;
+  if (regexEmail.test(inputEmail.value)) {
+    inputEmail.classList.add("is-valid");
+    return true;
+  } else {
+    inputEmail.classList.remove("is-valid");
+    Swal.fire({
+      title: "Enter Your Email",
+      text: `Enter at least 3 character or number and not include special character
+      you must end by "@gmail.com" 
+      EX ==> a11@gmail.com`,
+      icon: "error",
+    });
+  }
+}
+function validatePhone() {
+  regexPhone = /^01[0125][0-9]{8}$/;
+  if (regexPhone.test(inputPhone.value)) {
+    inputPhone.classList.add("is-valid");
+    return true;
+  } else {
+    Swal.fire({
+      title: "Enter Your Phone",
+      text: ` EX ==> 01094291525`,
+      icon: "error",
+    });
+    inputPhone.classList.remove("is-valid");
+  }
+}
+function validateAge() {
+  regexAge = /^(0?[1-9]|[1-9][0-9]|[1][0-9][0-9])$/;
+  if (regexAge.test(inputAge.value)) {
+    inputAge.classList.add("is-valid");
+    return true;
+  } else {
+    Swal.fire({
+      title: "Enter Your Age",
+      icon: "error",
+    });
+    inputAge.classList.remove("is-valid");
+  }
+}
+function validatePass() {
+  regexPass = /^[a-zA-Z0-9!@#$%^&*]{1,}$/;
+  if (regexPass.test(inputPass.value)) {
+    inputPass.classList.add("is-valid");
+    return inputPass.value;
+  } else {
+    Swal.fire({
+      title: "Enter valid Pass",
+      text: "Enter at least 1 character or number or (!,@,#,$,%,^,&,*) ",
+      icon: "error",
+    });
+    inputPass.classList.remove("is-valid");
+  }
+}
+function validateRepass() {
+  regexRepass = /^[a-zA-Z0-9!@#$%^&*]{1,}$/;
+  if (regexRepass.test(inputRepass.value)) {
+    inputRepass.classList.add("is-valid");
+    return inputRepass.value;
+  } else {
+    Swal.fire({
+      title: "Enter your Repassword",
+      // text: "Enter at least 1 character or number or (!,@,#,$,%,^,&,*) ",
+      icon: "error",
+    });
+    inputRepass.classList.remove("is-valid");
+  }
+}
+
+function allInputsValidate() {
+  if (
+    validateName() &&
+    validateEmail() &&
+    validatePhone() &&
+    validateAge() &&
+    validatePass() &&
+    validateRepass()
+  ) 
+  if(validatePass() === validateRepass()){
+    clearInputs();
+    Swal.fire({
+      icon: "success",
+      title: "Congratulations",
+    });
+
+  }else{
+    Swal.fire({
+      title: "Confirm your Password and Repassword are typical , identical",
+      icon: "error",
+    });
+  }
+  
+}
+
+function clearInputs() {
+  inputName.value = "";
+  inputEmail.value = "";
+  inputPhone.value = "";
+  inputAge.value = "";
+  inputPass.value = "";
+  inputRepass.value = "";
+  inputName.classList.remove("is-valid");
+  inputEmail.classList.remove("is-valid");
+  inputPhone.classList.remove("is-valid");
+  inputAge.classList.remove("is-valid");
+  inputPass.classList.remove("is-valid");
+  inputRepass.classList.remove("is-valid");
+}
